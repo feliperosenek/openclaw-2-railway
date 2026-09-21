@@ -68,7 +68,7 @@ railway ssh -s <service> -- openclaw devices approve <request-id>
 railway ssh -s <service> -- openclaw doctor --json
 ```
 
-Control UI HTML should load at `/openclaw` (HTTP 200). Gateway logs should show `[gateway] ready`.
+Control UI HTML should load at `/openclaw` (HTTP 200). Liveness probe is `GET /healthz` (HTTP 200). Gateway logs should show `[gateway] ready`.
 
 ---
 
