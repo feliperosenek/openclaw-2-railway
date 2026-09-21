@@ -9,6 +9,12 @@ BIND="${OPENCLAW_GATEWAY_BIND:-lan}"
 
 mkdir -p "$STATE_DIR" "$WORKSPACE_DIR"
 
+# Railway replaces the container on each deploy; PID namespaces differ, so a
+# previous owner's lock/lease under $STATE_DIR/tmp can block startup forever.
+# Safe for single-replica + exclusive volume mounts.
+rm -rf "${STATE_DIR}/tmp" 2>/dev/null || true
+mkdir -p "${STATE_DIR}/tmp"
+
 if [ "$(id -u)" = "0" ]; then
   chown -R node:node /data 2>/dev/null || true
 fi
