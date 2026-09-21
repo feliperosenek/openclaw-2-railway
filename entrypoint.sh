@@ -53,7 +53,8 @@ proxies.add("100.64.0.0/10");
 cfg.gateway.trustedProxies = [...proxies];
 cfg.gateway.controlUi = cfg.gateway.controlUi || {};
 cfg.gateway.controlUi.enabled = true;
-cfg.gateway.controlUi.basePath = cfg.gateway.controlUi.basePath || "/openclaw";
+// Serve Control UI at the public domain root (not /openclaw).
+delete cfg.gateway.controlUi.basePath;
 if (origin) {
   const origins = new Set(cfg.gateway.controlUi.allowedOrigins || []);
   origins.add(origin);

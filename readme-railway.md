@@ -6,7 +6,7 @@ Deploy this repository as **OpenClaw 2.0** on Railway — the personal AI assist
 
 This template runs the official [`openclaw/openclaw`](https://hub.docker.com/r/openclaw/openclaw) image (default tag **`2026.9.5`**) with Railway-ready defaults: gateway on port **8080**, state under `/data/.openclaw`, workspace under `/data/workspace`, and auth via `OPENCLAW_GATEWAY_TOKEN`.
 
-After deploy, open `https://<your-domain>/openclaw` and paste the gateway token to access the Control UI. Configure your LLM provider and messaging channels from the browser — no SSH required for day-to-day use.
+After deploy, open `https://<your-domain>/` and paste the gateway token to access the Control UI. Configure your LLM provider and messaging channels from the browser — no SSH required for day-to-day use.
 
 **Security:** the Gateway is exposed publicly. Read the [OpenClaw security docs](https://docs.openclaw.ai/gateway/security) and treat `OPENCLAW_GATEWAY_TOKEN` as an admin secret.
 
@@ -39,7 +39,7 @@ This template provides the **OpenClaw Gateway + Control UI**. Your LLM provider 
 
 | Item | Value |
 |------|-------|
-| Control UI | `https://<domain>/openclaw` |
+| Control UI | `https://<domain>/` |
 | Gateway token | `${{openclaw.OPENCLAW_GATEWAY_TOKEN}}` |
 | State dir | `/data/.openclaw` |
 | Workspace | `/data/workspace` |

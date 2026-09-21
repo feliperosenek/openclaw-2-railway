@@ -11,7 +11,7 @@ Pinned to the official image: **`openclaw/openclaw:2026.9.5`** (OpenClaw 2.0 = r
 OpenClaw is an open-source personal AI assistant that connects to chat apps you already use — Telegram, Discord, Slack, WhatsApp, and more. You configure an LLM provider, then talk to your agent from those channels.
 
 - **Gateway** — always-on control plane for agents, channels, tools, and sessions
-- **Control UI** — browser UI at `/openclaw` for setup and operator access
+- **Control UI** — browser UI at the domain root for setup and operator access
 - **Persistent state** — config, auth, sessions, and workspace on a Railway volume
 
 Security-sensitive: the Gateway is exposed publicly. Read the [OpenClaw security docs](https://docs.openclaw.ai/gateway/security) before production use.
@@ -52,7 +52,7 @@ Enable **HTTP Proxy** / public domain on port **8080**.
 Open:
 
 ```
-https://<your-domain>/openclaw
+https://<your-domain>/
 ```
 
 Paste `OPENCLAW_GATEWAY_TOKEN` when the Control UI asks for the Gateway secret. On first browser connect you may need one-time device pairing:
@@ -68,7 +68,7 @@ railway ssh -s <service> -- openclaw devices approve <request-id>
 railway ssh -s <service> -- openclaw doctor --json
 ```
 
-Control UI HTML should load at `/openclaw` (HTTP 200). Liveness probe is `GET /healthz` (HTTP 200). Gateway logs should show `[gateway] ready`.
+Control UI HTML should load at `/` (HTTP 200). Liveness probe is `GET /healthz` (HTTP 200). Gateway logs should show `[gateway] ready`.
 
 ---
 
